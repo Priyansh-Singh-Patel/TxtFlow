@@ -53,6 +53,25 @@ class SignUp : AppCompatActivity() {
     }
 
     private fun signUp(name: String, email: String, password: String) {
+        if (name.isBlank()) {
+            Toast.makeText(this, "Name cannot be empty", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (email.isBlank()) {
+            Toast.makeText(this, "Email cannot be empty", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (password.isBlank()) {
+            Toast.makeText(this, "Password cannot be empty", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (password.length < 6) {
+            Toast.makeText(this, "Password should be at least 6 characters", Toast.LENGTH_SHORT).show()
+            return
+        }
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {

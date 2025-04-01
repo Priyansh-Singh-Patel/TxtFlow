@@ -52,6 +52,15 @@ class LogIn : AppCompatActivity() {
     }
 
     private fun login(email: String, password: String) {
+        if (email.isBlank()) {
+            Toast.makeText(this, "Email cannot be empty", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (password.isBlank()) {
+            Toast.makeText(this, "Password cannot be empty", Toast.LENGTH_SHORT).show()
+            return
+        }
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
