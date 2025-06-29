@@ -1,5 +1,5 @@
 [versions]
-agp = "8.5.0"
+agp = "8.10.1"
 firebaseBom = "33.2.0"
 firebaseBomVersion = "32.1.0"
 googleFirebaseBom = "32.1.1"
